@@ -1,0 +1,8 @@
+{
+  "tick": {
+    "subtitle": "testa.subtitle.tick",
+    "sounds": [
+      "testa:tick"
+    ]
+  }
+}
