@@ -19,20 +19,9 @@ public class MetronomeBlockEntity extends BlockEntity{
         super(AllBlockEntities.METRONOME_BLOCK_ENTITY.get(),pos,state);
     }
 
-
-
-
-    private ItemStackHandler createHandler(){
-        return new ItemStackHandler(1);
-    }
-
-    private final ItemStackHandler itemHandler = createHandler();
-    private final LazyOptional<IItemHandler> handler = LazyOptional.of(()-> itemHandler);
-
     private int age = 0;
 
     public static void tick(Level world, BlockPos pos, BlockState state, MetronomeBlockEntity metronome) {
-            metronome.age++;
             if(!world.isClientSide && state.getValue(MetronomeBlock.POWERED)){
                 if(metronome.age%20 == 0 && metronome.age!=40){
                     //LogManager.getLogger().info("Shit");
@@ -43,6 +32,7 @@ public class MetronomeBlockEntity extends BlockEntity{
                     metronome.age = 0;}
 
             }
+            metronome.age++;
             //world.playSound(PlayerEntity player, BlockPos pos, SoundEvent sound, SoundCategory category, float volume, float pitch);
         }
     }

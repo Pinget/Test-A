@@ -10,6 +10,7 @@ public class DataProvider {
     public static void gatherData(GatherDataEvent event){
         DataGenerator generator = event.getGenerator();
         generator.addProvider(new BlockModelProvider(generator, event.getExistingFileHelper()));
+        generator.addProvider(new ItemModelProvider(generator, event.getExistingFileHelper()));
     }
 }
 

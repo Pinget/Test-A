@@ -17,6 +17,7 @@ public class AllBlocks {
     //block registration
     public static final RegistryObject<Block> METRONOME = BLOCKS_REG.register("metronome", () -> new MetronomeBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(1f)));
     public static final RegistryObject<Block> SUPER_FUCK_BLOCK = BLOCKS_REG.register("fuck_block",() -> new FuckBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2f).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> TEST_STORAGE = BLOCKS_REG.register("test_storage", () -> new TestStorageBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(1f), () -> {return AllBlockEntities.TEST_STORAGE_BLOCK_ENTITY.get();}));
     public static void register(IEventBus eventBus){
             BLOCKS_REG.register(eventBus);
     }

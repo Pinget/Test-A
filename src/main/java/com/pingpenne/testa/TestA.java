@@ -3,14 +3,19 @@ package com.pingpenne.testa;
 import com.pingpenne.testa.client.gui.ModItemGroup;
 import com.pingpenne.testa.common.content.block.AllBlockEntities;
 import com.pingpenne.testa.common.content.block.AllBlocks;
+import com.pingpenne.testa.common.content.block.AllContainers;
 import com.pingpenne.testa.common.content.item.AllItems;
+import com.pingpenne.testa.common.content.item.armor.Strap;
 import com.pingpenne.testa.common.content.sound.AllSounds;
+import com.pingpenne.testa.common.event.EventHandler;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -41,6 +46,7 @@ public class TestA
         AllItems.register(bus);
         AllSounds.register(bus);
         AllBlockEntities.register(bus);
+        AllContainers.register(bus);
 
 
 
@@ -53,6 +59,7 @@ public class TestA
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(EventHandler.class);
     }
 
     private void setup(final FMLCommonSetupEvent event)
